@@ -34,13 +34,13 @@ func (ci CombinedId) HasPrefix(prefix string) bool {
 func (ci *CombinedId) UnmarshalGQL(v interface{}) error {
 	_, ok := v.(string)
 	if !ok {
-		return fmt.Errorf("IDs must be strings")
+		return fmt.Errorf("CombinedIds must be strings")
 	}
 
 	*ci = v.(CombinedId)
 
 	if err := ci.Validate(); err != nil {
-		return errors.Wrap(err, "invalid ID")
+		return errors.Wrap(err, "invalid CombinedId")
 	}
 
 	return nil

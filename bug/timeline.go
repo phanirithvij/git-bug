@@ -13,7 +13,7 @@ type TimelineItem interface {
 	// Id returns the identifier of the item within the entity
 	// Id() entity.Id
 	// TODO: try to only have this one
-	Id() entity.CombinedId
+	CombinedId() entity.CombinedId
 	// CombinedId returns the global identifier of the item
 	// CombinedId() entity.CombinedId
 }
@@ -31,7 +31,7 @@ type CommentHistoryStep struct {
 // CommentTimelineItem is a TimelineItem that holds a Comment and its edition history
 type CommentTimelineItem struct {
 	// id should be the same as in Comment
-	id         entity.Id
+	// id entity.Id
 	combinedId entity.CombinedId
 	Author     identity.Interface
 	Message    string
@@ -43,7 +43,7 @@ type CommentTimelineItem struct {
 
 func NewCommentTimelineItem(comment Comment) CommentTimelineItem {
 	return CommentTimelineItem{
-		id:         comment.id,
+		// id: comment.id,
 		combinedId: comment.combinedId,
 		Author:     comment.Author,
 		Message:    comment.Message,
@@ -59,9 +59,9 @@ func NewCommentTimelineItem(comment Comment) CommentTimelineItem {
 	}
 }
 
-func (c *CommentTimelineItem) Id() entity.Id {
-	return c.id
-}
+// func (c *CommentTimelineItem) Id() entity.CombinedId {
+// 	return c.id
+// }
 
 func (c *CommentTimelineItem) CombinedId() entity.CombinedId {
 	return c.combinedId
