@@ -243,7 +243,7 @@ func (sb *showBug) renderMain(g *gocui.Gui, mainView *gocui.View) error {
 	y0 += lines + 1
 
 	for _, op := range snap.Timeline {
-		viewName := op.Id().String()
+		viewName := op.CombinedId().String()
 
 		// TODO: me might skip the rendering of blocks that are outside of the view
 		// but to do that we need to rework how sb.mainSelectableView is maintained

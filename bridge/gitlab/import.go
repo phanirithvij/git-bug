@@ -210,7 +210,7 @@ func (gi *gitlabImporter) ensureIssueEvent(repo *cache.RepoCache, b *cache.BugCa
 			op, err := b.EditCommentRaw(
 				author,
 				event.(NoteEvent).UpdatedAt.Unix(),
-				firstComment.Id(),
+				firstComment.CombinedId(),
 				text.Cleanup(issue.Description),
 				map[string]string{
 					metaKeyGitlabId: event.ID(),

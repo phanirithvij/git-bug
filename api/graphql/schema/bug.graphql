@@ -1,5 +1,7 @@
 """Represents a comment on a bug."""
 type Comment implements Authored {
+  id: CombinedId!
+
   """The author of this comment."""
   author: Identity!
 

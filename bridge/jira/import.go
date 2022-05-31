@@ -332,7 +332,7 @@ func (ji *jiraImporter) ensureComment(repo *cache.RepoCache, b *cache.BugCache, 
 	op, err := b.EditCommentRaw(
 		editor,
 		item.Updated.Unix(),
-		targetOpID,
+		entity.CombineIds(b.Id(), targetOpID),
 		text.Cleanup(item.Body),
 		map[string]string{
 			metaKeyJiraId: derivedID,
